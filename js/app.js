@@ -65,11 +65,14 @@ qwerty.addEventListener("click", (e) => {
         let listLetter = letter[i].textContent;
         let keyboardButton = button.textContent;
         if (keyboardButton === listLetter) {
-          letterFound.className = "show";
           let letterFound = letter[i];
-        } else {
-          return null;
+          if (letterFound) {
+            letterFound.className = "show";
+          } else {
+            return null;
+          }
         }
+
        }
       }
       checkLetter(targetButton());
