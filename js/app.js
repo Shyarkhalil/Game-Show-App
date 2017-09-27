@@ -35,10 +35,10 @@ function addPhraseToDisplay(arr){
     const li = document.createElement('li');
     li.textContent = characterArray;
     ul.appendChild(li);
-    if (characterArray === " ") {
-       li.className = "";
+    if (characterArray !== " ") {
+      li.classList.add("letter");
     } else {
-       li.className = "letter";
+      li.classList.add();
     }
   }
 }
@@ -51,7 +51,7 @@ addPhraseToDisplay(phraseArray);
 qwerty.addEventListener("click", (e) => {
     if (e.target.tagName === 'BUTTON') {
       let chosenButton = e.target;
-      chosenButton.setAttribute("disabled", '');
+      chosenButton.setAttribute("disabled", " ");
       chosenButton.className = "chosen";
 
       function targetButton() {
@@ -67,7 +67,7 @@ qwerty.addEventListener("click", (e) => {
         if (keyboardButton === listLetter) {
           let letterFound = letter[i];
           if (letterFound) {
-            letterFound.className = "show";
+            letterFound.classList.add("show");
           } else {
             return null;
           }
