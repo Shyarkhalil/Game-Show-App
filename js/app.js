@@ -58,7 +58,6 @@ qwerty.addEventListener("click", (e) => {
           let buttonLetters = e.target;
           return buttonLetters;
       }
-      }
        checkLetter(targetButton());
     }
 });
