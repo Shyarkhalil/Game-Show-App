@@ -58,24 +58,27 @@ qwerty.addEventListener("click", (e) => {
           let buttonLetters = e.target;
           return buttonLetters;
       }
-
-      function checkLetter(button) {
-        const letter = document.getElementsByClassName('letter');
-        for (var i = 0; i < letter.length; i++) {
-        let listLetter = letter[i].textContent;
-        let keyboardButton = button.textContent;
-        if (keyboardButton === listLetter) {
-          let letterFound = letter[i];
-          if (letterFound) {
-            letterFound.classList.add("show");
-          } else {
-            return null;
-          }
-        }
-
-       }
       }
-      checkLetter(targetButton());
+       checkLetter(targetButton());
     }
-
 });
+
+function checkLetter(button) {
+  const letter = document.getElementsByClassName('letter');
+
+  for (var i = 0; i < letter.length; i++) {
+  let listLetter = letter[i].textContent;
+  let keyboardButton = button.textContent;
+  if (keyboardButton === listLetter) {
+    let letterFound = letter[i];
+    letterFound.classList.add("show");
+  } else {
+    missed +=1
+    console.log(missed);
+  }
+  if (missed >= 5) {
+    console.log("Hi");
+  }
+ }
+
+}
