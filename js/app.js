@@ -50,12 +50,10 @@ addPhraseToDisplay(phraseArray);
 
 qwerty.addEventListener("click", (e) => {
     if (e.target.tagName === 'BUTTON') {
-      let chosenButton = e.target;
-      chosenButton.setAttribute("disabled", " ");
-      chosenButton.classList.add("chosen");
-
       function targetButton() {
           let buttonLetters = e.target;
+          buttonLetters.setAttribute("disabled", " ");
+          buttonLetters.classList.add("chosen");
           return buttonLetters;
       }
 
@@ -74,7 +72,7 @@ qwerty.addEventListener("click", (e) => {
         } else {
           return null;
         }
-       }
+      }
       }
        checkLetter(targetButton());
     }
