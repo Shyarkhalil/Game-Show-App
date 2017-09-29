@@ -52,32 +52,28 @@ qwerty.addEventListener("click", (e) => {
     if (e.target.tagName === 'BUTTON') {
       let chosenButton = e.target;
       chosenButton.setAttribute("disabled", " ");
-      chosenButton.className = "chosen";
+      chosenButton.classList.add("chosen");
 
       function targetButton() {
           let buttonLetters = e.target;
           return buttonLetters;
       }
+
+      function checkLetter(button) {
+        let letter = document.getElementsByClassName('letter');
+
+        for (let i = 0; i < letter.length; i++) {
+        let listItem = letter[i];
+        let listLetter = listItem.textContent;
+        let keyboardButton = button.textContent;
+
+        if (keyboardButton === listLetter) {
+          listItem.classList.add("show");
+          let letterFound = listLetter;
+          console.log(letterFound);
+        } 
+       }
+      }
        checkLetter(targetButton());
     }
 });
-
-function checkLetter(button) {
-  const letter = document.getElementsByClassName('letter');
-
-  for (var i = 0; i < letter.length; i++) {
-  let listLetter = letter[i].textContent;
-  let keyboardButton = button.textContent;
-  if (keyboardButton === listLetter) {
-    let letterFound = letter[i];
-    letterFound.classList.add("show");
-  } else {
-    missed +=1
-    console.log(missed);
-  }
-  if (missed >= 5) {
-    console.log("Hi");
-  }
- }
-
-}
