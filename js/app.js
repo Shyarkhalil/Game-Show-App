@@ -71,7 +71,9 @@ qwerty.addEventListener("click", (e) => {
           listItem.classList.add("show");
           let letterFound = listLetter;
           console.log(letterFound);
-        } 
+        } else {
+          return null;
+        }
        }
       }
        checkLetter(targetButton());
