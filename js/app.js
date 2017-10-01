@@ -47,8 +47,27 @@ addPhraseToDisplay(phraseArray);
 
 
 
+const returnLetter = function checkLetter(button) {
+  let letter = document.getElementsByClassName('letter');
+
+  for (let i = 0; i < letter.length; i++) {
+  let listItem = letter[i];
+  let listLetter = listItem.textContent;
+  let keyboardButton = button.textContent;
+
+  if (listLetter === keyboardButton) {
+    listItem.classList.add("show");
+    let letterFound = listLetter;
+    console.log(letterFound);
+  }
+}
+};
+
+
+
 
 qwerty.addEventListener("click", (e) => {
+  e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
       function targetButton() {
           let buttonLetters = e.target;
@@ -56,24 +75,11 @@ qwerty.addEventListener("click", (e) => {
           buttonLetters.classList.add("chosen");
           return buttonLetters;
       }
-
-      function checkLetter(button) {
-        let letter = document.getElementsByClassName('letter');
-
-        for (let i = 0; i < letter.length; i++) {
-        let listItem = letter[i];
-        let listLetter = listItem.textContent;
-        let keyboardButton = button.textContent;
-
-        if (keyboardButton === listLetter) {
-          listItem.classList.add("show");
-          let letterFound = listLetter;
-          console.log(letterFound);
-        } else {
-          return null;
-        }
-      }
-      }
-       checkLetter(targetButton());
+       returnLetter(targetButton());
+       if (letterFound) {
+         console.log("hi");
+       } else {
+         console.log("Is Not Equal");
+       }
     }
 });
