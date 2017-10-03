@@ -47,32 +47,6 @@ const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
 
 
-
- const checkLetter = function (keyboard) {
-  const classletter = document.getElementsByClassName('letter');
-
-  for (let i = 0; i < classletter.length; i++) {
-  let listItem = classletter[i];
-  let listLetter = listItem.textContent;
-  let keyboardButton = keyboard.textContent;
-
-
-  if (listLetter === keyboardButton) {
-  listItem.classList.add("show");
-  var letterFound = listLetter;
-  }
- }
- if (letterFound) {
-   return letterFound;
- }else {
-   missed +=1
-   return null;
- }
-};
-
-
-
-
 qwerty.addEventListener("click", (e) => {
   e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
@@ -82,6 +56,26 @@ qwerty.addEventListener("click", (e) => {
           buttonLetters.classList.add("chosen");
           return buttonLetters;
       }
+      const checkLetter = function (keyboard) {
+       const classletter = document.getElementsByClassName('letter');
+
+       for (let i = 0; i < classletter.length; i++) {
+       let listItem = classletter[i];
+       let listLetter = listItem.textContent;
+       let keyboardButton = keyboard.textContent;
+
+
+       if (listLetter === keyboardButton) {
+       listItem.classList.add("show");
+       var letterFound = listLetter;
+       }
+      }
+      if (letterFound) {
+        return letterFound;
+      }else {
+        return null;
+      }
+     };
       let returnLetter = checkLetter(targetButton());
       console.log(returnLetter);
     }
