@@ -3,7 +3,7 @@ const screenOverlay = document.getElementById('overlay');
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 
-let missed= 0;
+let missed = 0;
 
 
 
@@ -42,25 +42,32 @@ function addPhraseToDisplay(arr){
     }
   }
 }
+
 const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
 
 
 
-const returnLetter = function checkLetter(button) {
-  let letter = document.getElementsByClassName('letter');
+ const checkLetter = function (keyboard) {
+  const classletter = document.getElementsByClassName('letter');
 
-  for (let i = 0; i < letter.length; i++) {
-  let listItem = letter[i];
+  for (let i = 0; i < classletter.length; i++) {
+  let listItem = classletter[i];
   let listLetter = listItem.textContent;
-  let keyboardButton = button.textContent;
+  let keyboardButton = keyboard.textContent;
+
 
   if (listLetter === keyboardButton) {
-    listItem.classList.add("show");
-    let letterFound = listLetter;
-    console.log(letterFound);
+  listItem.classList.add("show");
+  var letterFound = listLetter;
   }
-}
+ }
+ if (letterFound) {
+   return letterFound;
+ }else {
+   missed +=1
+   return null;
+ }
 };
 
 
@@ -75,11 +82,7 @@ qwerty.addEventListener("click", (e) => {
           buttonLetters.classList.add("chosen");
           return buttonLetters;
       }
-       returnLetter(targetButton());
-       if (letterFound) {
-         console.log("hi");
-       } else {
-         console.log("Is Not Equal");
-       }
+      let returnLetter = checkLetter(targetButton());
+      console.log(returnLetter);
     }
 });
