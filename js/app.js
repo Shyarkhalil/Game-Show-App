@@ -1,7 +1,14 @@
-const startButton = document.querySelector("a");
+const startButton = document.querySelector(".btn__reset");
 const screenOverlay = document.getElementById('overlay');
+const loseScreen = document.getElementById('overlayLose');
+const winScreen = document.getElementById('overlayWin');
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
+const triesHeart = document.getElementsByClassName("tries");
+const title = document.querySelector(".title");
+const winner = document.querySelector(".winner");
+const loser = document.querySelector(".lostDude");
+const sadEmoji = document.querySelector(".sadEmoji");
 
 let missed = 0;
 
@@ -47,6 +54,9 @@ const phraseArray = getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
 
 
+
+
+
 qwerty.addEventListener("click", (e) => {
   e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
@@ -58,11 +68,11 @@ qwerty.addEventListener("click", (e) => {
       }
       const checkLetter = function (keyboard) {
        const classletter = document.getElementsByClassName('letter');
-
+       let keyboardButton = keyboard.textContent;
        for (let i = 0; i < classletter.length; i++) {
        let listItem = classletter[i];
        let listLetter = listItem.textContent;
-       let keyboardButton = keyboard.textContent;
+
 
 
        if (listLetter === keyboardButton) {
@@ -77,6 +87,41 @@ qwerty.addEventListener("click", (e) => {
       }
      };
       let returnLetter = checkLetter(targetButton());
-      console.log(returnLetter);
+      if (returnLetter === null) {
+         missed++;
+      }
+
+
+      if (missed === 1) {
+        triesHeart[0].style.display = 'none';
+      }else if (missed === 2) {
+        triesHeart[1].style.display = 'none';
+      }else if (missed === 3) {
+        triesHeart[2].style.display = 'none';
+      } else if (missed === 4) {
+        triesHeart[3].style.display = 'none';
+      }else if (missed === 5) {
+        triesHeart[4].style.display = 'none';
+      }
     }
+
+
+    function checkWin () {
+      const showClass = document.getElementsByClassName("show");
+      const letterClass = document.getElementsByClassName("letter")
+      let showLetterNum = showClass.length;
+      let letterClassNum = letterClass.length;
+       if (showLetterNum === letterClassNum) {
+           winScreen.style.display = 'inherit';
+           title.style.opacity= 0;
+       }
+
+       if (missed >= 5) {
+         loseScreen.style.display= 'inherit';
+         title.style.opacity= 0;
+         sadEmoji.style.opacity= 1;
+       }
+
+    }
+    checkWin ();
 });

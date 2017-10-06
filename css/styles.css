@@ -122,17 +122,19 @@ button {
   color: #FFFFFF;
 }
 
+
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
   background: #FFFFFF;
   border-radius: 5px;
   font-size: var(--font-size-medium);
+  cursor: pointer;
 }
 
 /* Overlay */
 
-#overlay {
+#overlay, #overlayWin, #overlayLose {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -145,9 +147,14 @@ button {
   border-radius: 5px;
 }
 
+
+
+
 .title {
   color: #FFF;
 }
+
+
 
 .start {
   background-color: var(--color-start);
@@ -157,10 +164,7 @@ button {
   color: var(--color-win);
 }
 
-/*.hide {
-   opacity: 0;
-   transition: opacity .50s ease;
-}*/
+
 
 .win {
   background-color: var(--color-win);
@@ -177,3 +181,17 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+
+.sadEmoji {
+  width: 40px;
+  position: fixed;
+}
+
+#overlayWin, #overlayLose {
+    display: none;
+}
+
+/*.lostDude, .winner {
+  display: none;
+}*/
