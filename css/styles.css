@@ -69,13 +69,16 @@ button {
   padding: 10px;
 }
 
+#phrase {
+  perspective: 1000px;
+}
 /* Title */
 
 .header {
   color: var(--color-start);
 }
 
-/* Scoreboard */
+
 
 /*.tries {
   background-image: url('/liveHeart.png');
@@ -99,14 +102,19 @@ button {
 }
 
 .show {
-  color: #000;
-  background-color: #76CE82;
+  color:  rgb(226, 190, 8);
+  background-color: rgb(6, 14, 17);
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
   margin: 2px;
   border-radius: 5px;
+  transform: rotateY(360deg);
+  transition-property: transform, background-color, color;
+  transition-duration: .80s;
+  transition-delay: .20s, .18s, .50s, .50s;
 }
+
 
 /* Keyboard */
 
@@ -123,7 +131,7 @@ button {
 }
 
 
-.btn__reset {
+.btn__reset, .reset {
   padding: 8px;
   margin: 50px auto;
   background: #FFFFFF;
@@ -145,6 +153,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  z-index: 1000;
 }
 
 
@@ -183,15 +192,80 @@ button {
 }
 
 
-.sadEmoji {
-  width: 40px;
-  position: fixed;
-}
 
 #overlayWin, #overlayLose {
     display: none;
 }
 
-/*.lostDude, .winner {
-  display: none;
-}*/
+/*Animation letter*/
+
+.letterL, .letterF {
+  margin-right: 10px;
+}
+
+
+.animated li {
+  font-size: 4em;
+  color: #484848;
+  animation: animate 1.30s cubic-bezier(0, 0, 0.28, 0.95) infinite;
+}
+@keyframes animate {
+   0%
+   {
+     color: #484848;
+     text-shadow: none;
+   }
+   90%
+   {
+     color: #484848;
+     text-shadow: none;
+   }
+   100%
+   {
+     color: #fff900;
+     text-shadow: 0 0 7px #fff900, 0 0 50px #ff6c00;
+   }
+}
+
+.animated li:nth-child(1){
+  animation-delay: .10s;
+}
+.animated li:nth-child(2){
+  animation-delay: .20s;
+}
+.animated li:nth-child(3){
+  animation-delay: .30s;
+}
+.animated li:nth-child(4){
+  animation-delay: .40s;
+}
+.animated li:nth-child(5){
+  animation-delay: .50s;
+}
+.animated li:nth-child(6){
+  animation-delay: .60s;
+}
+.animated li:nth-child(7){
+  animation-delay: .70s;
+}
+.animated li:nth-child(8){
+  animation-delay: .80s;
+}
+.animated li:nth-child(9){
+  animation-delay: .90s;
+}
+.animated li:nth-child(10){
+  animation-delay: 1s;
+}
+.animated li:nth-child(11){
+  animation-delay: 1.10s;
+}
+.animated li:nth-child(12){
+  animation-delay: 1.20s;
+}
+.animated li:nth-child(13){
+  animation-delay: 1.30s;
+}
+.animated li:nth-child(14){
+  animation-delay: 1.40s;
+}
