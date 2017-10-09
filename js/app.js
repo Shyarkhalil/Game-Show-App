@@ -148,7 +148,7 @@ qwerty.addEventListener("click", (e) => {
          missed++;
       }
 
-// This statement checks if the value of the letterFound variable.
+// This statement checks the value of the letterFound variable.
 //If the value is null, will remove one of the tries from the scoreboard.
       if (missed === 1) {
         triesHeart[0].style.display = 'none';
