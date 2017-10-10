@@ -13,6 +13,22 @@ const mainDiv = document.querySelector(".main-container");
 
 let missed = 0;
 
+//Phrases array that contains at least 5 different phrases as strings
+var phrases =[
+'a picture is worth a thousand words',
+'a piece of cake',
+'a good neighbor a found treasure',
+'a penny saved is a penny earned',
+'age is just a number',
+'talk the talk',
+'coding is awesome',
+'two wrongs do not make a right',
+'better late than never',
+'easy come easy go',
+'you rock',
+'go the extra mile'
+];
+
 
 
 startButton.addEventListener("click", () => {
@@ -24,7 +40,7 @@ startButton.addEventListener("click", () => {
 // This fucntion sets everything to zero
 mainDiv.addEventListener('click', (e) => {
   if (e.target.textContent === "Play Again") {
-    const li = document.querySelectorAll(".section ul li");
+    const li = document.querySelectorAll("#phrase li");
 // Loops through li item and removes it.
     for (var i = 0; i < li.length; i++) {
         const list = li[i];
@@ -47,8 +63,10 @@ mainDiv.addEventListener('click', (e) => {
       tries.removeAttribute("style");
     }
 
+
 // Returns phrases randomly
-    addPhraseToDisplay(phraseArray);
+getRandomPhraseArray(phrases);
+addPhraseToDisplay(getRandomPhraseArray(phrases));
     loseScreen.style.display = 'none';
     winScreen.style.display = 'none';
   }
@@ -56,14 +74,6 @@ mainDiv.addEventListener('click', (e) => {
 
 
 
-//Phrases array that contains at least 5 different phrases as strings
-const phrases =[
-'a picture is worth a thousand words',
-'a piece of cake',
-'a good neighbor a found treasure',
-'a penny saved is a penny earned',
-'age is just a number'
-];
 
 // This function randomly chooses a phrase from the phrases array and split that phrase into a new array of characters
 function getRandomPhraseArray(arr){
