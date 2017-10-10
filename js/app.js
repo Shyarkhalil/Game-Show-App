@@ -64,9 +64,9 @@ mainDiv.addEventListener('click', (e) => {
     }
 
 
-// Returns phrases randomly
-getRandomPhraseArray(phrases);
-addPhraseToDisplay(getRandomPhraseArray(phrases));
+    // Returns phrases randomly
+    getRandomPhraseArray(phrases);
+    addPhraseToDisplay(getRandomPhraseArray(phrases));
     loseScreen.style.display = 'none';
     winScreen.style.display = 'none';
   }
